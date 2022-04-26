@@ -1,0 +1,59 @@
+{
+  "name": "@vuefront/cli",
+  "version": "0.1.0",
+  "description": "VueFront CLI",
+  "bin": {
+    "vuefront": "./bin/cli.js",
+    "vf": "./bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "keywords": [
+    "vuefront"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://alexandrdrvn@github.com/vuefront/vuefront-cli.git"
+  },
+  "author": "VueFront",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vuefront/vuefront-cli/issues"
+  },
+  "homepage": "https://github.com/vuefront/vuefront-cli#readme",
+  "scripts": {
+    "build": "tsc",
+    "clean": "gulp clean:bundle",
+    "format": "prettier --write \"**/*.ts\"",
+    "lint": "eslint '{lib,commands,actions}/**/*.ts' --fix",
+    "start": "node bin/cli.js",
+    "prepack": "npm run build",
+    "prepublish:next": "npm run build",
+    "publish:next": "npm publish --access public --tag next",
+    "prepublish:npm": "npm run build",
+    "publish:npm": "npm publish --access public",
+    "test": "jest --config test/jest-config.json",
+    "test:dev": "npm run clean && jest --config test/jest-config.json --watchAll",
+    "prerelease": "npm run build",
+    "release": "release-it"
+  },
+  "devDependencies": {
+    "@types/commander": "^2.12.2",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "5.20.0",
+    "delete-empty": "^3.0.0",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.26.0",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "prettier": "^2.6.2"
+  },
+  "dependencies": {
+    "commander": "4.1.1",
+    "ts-node": "^10.7.0",
+    "ts-jest":"27.1.4"
+  }
+}
