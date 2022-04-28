@@ -1,4 +1,4 @@
-import { Command, CommanderStatic } from 'commander';
+import { CommanderStatic } from 'commander';
 import { AbstractCommand } from './abstract.command';
 import { Input } from './command.input';
 export class MakeCommand extends AbstractCommand {
@@ -6,7 +6,7 @@ export class MakeCommand extends AbstractCommand {
     program
       .command('info')
       .description('Info')
-      .action(async (type: string, name: string, command: Command) => {
+      .action(async (type: string, name: string) => {
         type NewType = Input;
 
         const options: NewType[] = [];
