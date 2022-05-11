@@ -4,7 +4,7 @@ import * as path from 'path'
 import { VuefrontConfig } from '../config';
 export class VueFrontGenerator {
     public async generateComponent(typeComponent: VueFrontComponentKey, name: string) {
-        const vuefrontConfig = new VuefrontConfig('/Users/alexkrasny/Workspace/javascript/vuefront/vuefront-vite-starter-kit');
+        const vuefrontConfig = new VuefrontConfig();
         await vuefrontConfig.load();
         const componentType = vuefrontConfig.detectComponentType(typeComponent)
         if (!componentType) {
