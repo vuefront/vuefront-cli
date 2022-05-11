@@ -3,6 +3,7 @@ declare interface VueFrontComponent {
     css?: string
     type?: VueFrontPathType
     path?: string
+    fullPath?: string
   }
    type VueFrontComponentList = {
     [key: string]: VueFrontComponent | string
@@ -52,7 +53,7 @@ declare type VueFrontConfigComponents = {
     [key: string]: VuefrontStore
   }
   
-  declare interface VueFrontConfig extends VueFrontConfigComponents {
+  declare interface VueFrontConfigData extends VueFrontConfigComponents {
     root?: VueFrontConfigRoot;
     store?: VuefrontStoreList;
     theme?: string;
