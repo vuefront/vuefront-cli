@@ -195,23 +195,37 @@ export class VuefrontConfig {
   }
 
   private _checkPath = (path: string) => {
-    const newPath = _.replace(path, /^(~)/, this._rootDir + '/src')
+    let newPath = path;
+    if (/^(~)/.test(path)) {
+      newPath = _.replace(path, /^(~)/, this._rootDir + '/src')
+    }
     try {
       require.resolve(newPath)
       return true
-    } catch (e) {
-      return false
-     }
+    } catch (e) { }
+    newPath = this._rootDir + '/node_modules/' + path
+    try {
+      require.resolve(newPath)
+      return true
+    } catch (e) { }
+
+    return false;
   }
   private _getPath = (path: string) => {
-    const newPath = _.replace(path, /^(~)/, this._rootDir + '/src')
+    let newPath = path;
     let result = path
+    if (/^(~)/.test(path)) {
+      newPath = _.replace(path, /^(~)/, this._rootDir + '/src')
+    }
     try {
       result = require.resolve(newPath)
-    } catch (e) {
-    }
+    } catch (e) { }
+    newPath = this._rootDir + '/node_modules/' + path
+    try {
+      result = require.resolve(newPath)
+    } catch (e) { }
 
-    return result
+    return result;
   }
 
   public getComponentsFolder = () => {

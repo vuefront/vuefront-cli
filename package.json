@@ -1,15 +1,11 @@
 {
   "name": "@vuefront/cli",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "VueFront CLI",
   "bin": {
     "vuefront": "./bin/cli.js",
     "vf": "./bin/cli.js"
   },
-  "files": [
-    "bin",
-    "lib"
-  ],
   "keywords": [
     "vuefront"
   ],
