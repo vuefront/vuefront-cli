@@ -1,13 +1,15 @@
 import * as chalk from 'chalk';
 import { CommanderStatic } from 'commander';
-import { MakeAction, InfoAction } from '../actions';
+import { MakeAction, InfoAction, NewAction } from '../actions';
 import { ERROR_PREFIX } from '../lib/ui';
 import { MakeCommand } from './make.command';
 import { InfoCommand } from './info.command';
+import { NewCommand } from './new.command';
 export class CommandLoader {
   public static load(program: CommanderStatic): void {
     new MakeCommand(new MakeAction()).load(program);
     new InfoCommand(new InfoAction()).load(program);
+    new NewCommand(new NewAction()).load(program);
     this.handleInvalidCommand(program);
   }
 

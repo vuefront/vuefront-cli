@@ -54,7 +54,9 @@
   },
   "dependencies": {
     "commander": "4.1.1",
+    "create-vuefront-app": "^0.6.1",
     "lodash": "^4.17.21",
+    "sao": "^1.7.1",
     "ts-jest": "27.1.4",
     "ts-node": "^10.7.0"
   }
